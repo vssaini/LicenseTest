@@ -1,0 +1,25 @@
+﻿@using LicenseTest.Models
+@model dynamic
+
+@{
+    ViewBag.Title = "License Tester";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>License Test</h2>
+
+@if (!Security.IsValidLicense)
+{
+    if (Security.IsInThirtyDayTrialMode)
+    {
+        <p>@Resources.Home.EvaluationText</p>
+    }
+    else
+    {
+        <p>Trial Expired</p>
+    }
+}
+else
+{
+    <p>Congrats! You are genuine license holder</p>
+}
